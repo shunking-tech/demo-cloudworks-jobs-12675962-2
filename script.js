@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to(categoryItems, {
             scrollTrigger: {
                 trigger: '.collection',
-                start: 'top 10%',
+                start: 'top 20%',
                 toggleActions: "play none none reverse"
             },
             y: 0,
