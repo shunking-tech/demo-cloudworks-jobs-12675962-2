@@ -122,4 +122,46 @@ document.addEventListener('DOMContentLoaded', () => {
         y: 100
     });
 
+    // Section Title Animation
+    const sectionTitles = document.querySelectorAll('.section-title');
+
+    sectionTitles.forEach(title => {
+        const nodes = Array.from(title.childNodes);
+        let newContent = document.createDocumentFragment();
+
+        nodes.forEach(node => {
+            if (node.nodeType === 3) { // Text node
+                const text = node.textContent;
+                text.split('').forEach(char => {
+                    if (char.trim() === '') {
+                        newContent.appendChild(document.createTextNode(char));
+                    } else {
+                        const span = document.createElement('span');
+                        span.textContent = char;
+                        span.style.display = 'inline-block';
+                        newContent.appendChild(span);
+                    }
+                });
+            } else {
+                newContent.appendChild(node.cloneNode(true));
+            }
+        });
+
+        title.innerHTML = '';
+        title.appendChild(newContent);
+
+        gsap.from(title.querySelectorAll('span'), {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 70%',
+                toggleActions: "play none none reverse"
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.05,
+            ease: 'power3.out'
+        });
+    });
+
 });
