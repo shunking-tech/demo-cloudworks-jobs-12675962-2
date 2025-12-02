@@ -87,6 +87,23 @@ document.addEventListener('DOMContentLoaded', () => {
         scale: 1.1
     });
 
+    // Concept Image Circle Mask Reveal
+    gsap.fromTo('.concept-image-wrapper',
+        {
+            clipPath: 'circle(0% at 50% 50%)',
+        },
+        {
+            scrollTrigger: {
+                trigger: '.concept-image-wrapper',
+                start: 'top 50%',
+                toggleActions: "play none none reverse"
+            },
+            clipPath: 'circle(100% at 50% 50%)',
+            duration: 4,
+            ease: 'power4.out'
+        }
+    );
+
     // Category Items Stagger - FIXED
     // Ensure elements are visible if JS fails by not setting initial opacity in CSS, 
     // but handling it here.
