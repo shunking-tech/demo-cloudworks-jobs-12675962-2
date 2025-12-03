@@ -319,7 +319,7 @@ h6 {
 
 .concept-image-wrapper {
     position: relative;
-    height: 600px;
+    height: 400px;
     overflow: hidden;
     border-radius: 300px 300px 0 0;
     /* Arch shape */
@@ -332,6 +332,12 @@ h6 {
     /* Outer shadow */
 }
 
+@media screen and (min-width: 750px) {
+    .concept-image-wrapper {
+        height: 600px;
+    }
+}
+
 .concept-image {
     position: absolute;
     top: -10%;
@@ -341,6 +347,26 @@ h6 {
     /* For parallax */
     object-fit: cover;
     object-position: center;
+}
+
+.door-left,
+.door-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: 10;
+    transition: transform 0.1s ease;
+    /* For smooth GSAP control */
+}
+
+.door-left {
+    left: 0;
+}
+
+.door-right {
+    right: 0;
 }
 
 /* Collection Section */

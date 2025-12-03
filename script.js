@@ -87,22 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
         scale: 1.1
     });
 
-    // Concept Image Circle Mask Reveal
-    gsap.fromTo('.concept-image-wrapper',
-        {
-            clipPath: 'circle(0% at 50% 50%)',
-        },
-        {
-            scrollTrigger: {
-                trigger: '.concept-image-wrapper',
-                start: 'top 50%',
-                toggleActions: "play none none reverse"
-            },
-            clipPath: 'circle(100% at 50% 50%)',
-            duration: 10,
-            ease: 'power4.out'
+    // Concept Image Door Opening Animation
+    const doorTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.concept-image-wrapper',
+            start: 'top 60%', // Trigger earlier to see it open
+            toggleActions: "play none none reverse"
         }
-    );
+    });
+
+    doorTl.to('.door-left', {
+        x: '-100%',
+        duration: 1.5,
+        ease: 'power2.inOut'
+    }, 0)
+        .to('.door-right', {
+            x: '100%',
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, 0);
 
     // Category Items Stagger - FIXED
     // Ensure elements are visible if JS fails by not setting initial opacity in CSS, 
