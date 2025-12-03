@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleActions: "play none none reverse"
             },
             clipPath: 'circle(100% at 50% 50%)',
-            duration: 4,
+            duration: 10,
             ease: 'power4.out'
         }
     );
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 20,
             opacity: 0,
             duration: 0.8,
-            stagger: 0.05,
+            stagger: 0.1,
             ease: 'power3.out'
         });
     });
